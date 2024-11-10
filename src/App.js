@@ -5,6 +5,7 @@ import Alert from './components/Alert'
 import React, { useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
+
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
