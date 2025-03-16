@@ -75,7 +75,7 @@ const Body = (props) => {
     const syllableCount = word.match(/[aeiouy]{1,2}/g);
     return syllableCount ? syllableCount.length : 0;
   };
-
+//hit
   // Encode both text and emojis to Base64
   const encodeBase64 = () => {
     const base64Encoded = btoa(unescape(encodeURIComponent(text)));
