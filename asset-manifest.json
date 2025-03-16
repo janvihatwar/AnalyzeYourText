@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/analyzeYourTextHere/static/css/main.551bd85b.css",
-    "main.js": "/analyzeYourTextHere/static/js/main.2fd38c25.js",
-    "static/js/453.9896242d.chunk.js": "/analyzeYourTextHere/static/js/453.9896242d.chunk.js",
-    "index.html": "/analyzeYourTextHere/index.html",
-    "main.551bd85b.css.map": "/analyzeYourTextHere/static/css/main.551bd85b.css.map",
-    "main.2fd38c25.js.map": "/analyzeYourTextHere/static/js/main.2fd38c25.js.map",
-    "453.9896242d.chunk.js.map": "/analyzeYourTextHere/static/js/453.9896242d.chunk.js.map"
+    "main.css": "/AnalyzeYourText/static/css/main.551bd85b.css",
+    "main.js": "/AnalyzeYourText/static/js/main.d053f3fb.js",
+    "static/js/453.9896242d.chunk.js": "/AnalyzeYourText/static/js/453.9896242d.chunk.js",
+    "index.html": "/AnalyzeYourText/index.html",
+    "main.551bd85b.css.map": "/AnalyzeYourText/static/css/main.551bd85b.css.map",
+    "main.d053f3fb.js.map": "/AnalyzeYourText/static/js/main.d053f3fb.js.map",
+    "453.9896242d.chunk.js.map": "/AnalyzeYourText/static/js/453.9896242d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.551bd85b.css",
-    "static/js/main.2fd38c25.js"
+    "static/js/main.d053f3fb.js"
   ]
 }
