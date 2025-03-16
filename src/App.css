@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistics Cards */
+.stats-card {
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .stats-card {
+  background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+}
+
+/* Bookmark Items */
+.bookmark-item {
+  transition: all 0.2s ease;
+  background-color: var(--bs-light);
+}
+
+.bookmark-item:hover {
+  transform: translateX(4px);
+}
+
+.dark-mode .bookmark-item {
+  background-color: #2d2d2d;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Full screen layout */
+html, body, #root, .App {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-container {
+  height: calc(100vh - 56px); /* Subtract navbar height */
+  overflow: hidden;
+}
+
+.content-area {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Adjust card heights */
+.editor-card {
+  height: calc(100vh - 140px); /* Adjust based on your navbar and padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+textarea {
+  height: 100% !important;
+  resize: none;
+}
+
+/* Bookmark section */
+.bookmarks-section {
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.bookmark-list {
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}

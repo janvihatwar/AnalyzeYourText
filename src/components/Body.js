@@ -119,166 +119,146 @@ const Body = (props) => {
   };
 
   return (
-    <>
-      <div
-        className="container my-4"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
-      >
-        <h3>
-          Text Analyzer - Word counter, Character counter, Remove extra spaces, Encode & Decode Base64
-        </h3>
-        <textarea
-          value={text}
-          onChange={change}
-          style={{
-            backgroundColor: props.mode === "dark" ? "rgb(211,211,211)" : "white",
-            color: props.mode === "dark" ? "black" : "black",
-            border: "1px solid black",
-            width: "80%",
-          }}
-          rows="5"
-          cols="100"
-          id="myBox"
-        ></textarea>
-        <br />
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-3 my-2"
-          onClick={upCase}
-        >
-          Uppercase
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary my-2"
-          onClick={lwCase}
-        >
-          Lowercase
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-3 my-2"
-          onClick={clearText}
-        >
-          Clear Text
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary my-2"
-          onClick={copyText}
-        >
-          Copy Text
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-3 my-2"
-          onClick={extraSpace}
-        >
-          Remove Extra Space
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary my-2"
-          onClick={encodeBase64}
-        >
-          Encode to Base64
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-3 my-2"
-          onClick={decodeBase64}
-        >
-          Decode from Base64
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary my-2"
-          onClick={addBookmark}
-        >
-          Bookmark Text
-        </button>
-      </div>
+    <div className="main-container">
+      <div className="container-fluid h-100 py-3">
+        <div className="row h-100">
+          {/* Text Editor Section */}
+          <div className="col-lg-8 h-100">
+            <div className="card shadow-sm editor-card">
+              <div className="card-body d-flex flex-column">
+                <h3 className="card-title mb-3">
+                  Text Analyzer
+                </h3>
+                
+                <div className="editor-content mb-3">
+                  <textarea
+                    value={text}
+                    onChange={change}
+                    className="form-control"
+                    style={{
+                      backgroundColor: props.mode === "dark" ? "#2d2d2d" : "white",
+                      color: props.mode === "dark" ? "#e0e0e0" : "black",
+                      border: props.mode === "dark" ? "1px solid #404040" : "1px solid #ced4da",
+                      fontSize: "1rem",
+                      lineHeight: "1.5",
+                      padding: "1rem"
+                    }}
+                    placeholder="Enter your text here..."
+                    id="myBox"
+                  ></textarea>
+                </div>
 
-      <div
-        className="container my-1"
-        style={{
-          backgroundColor: props.mode === "dark" ? "grey" : "white",
-          color: props.mode === "dark" ? "white" : "black",
-        }}
-      >
-        <h4>Your text summary</h4>
-        <p>
-          {
-            text.split(/\s+/).filter((element) => {
-              return element.length !== 0;
-            }).length
-          }{" "}
-          Words And {text.length} Characters
-        </p>
-        <p>
-          {0.008 *
-            text.split(" ").filter((element) => {
-              return element.length !== 0;
-            }).length}{" "}
-          Minutes Read
-        </p>
+                {/* Statistics Row */}
+                <div className="row g-2 mb-3">
+                  <div className="col-md-3">
+                    <div className="p-2 border rounded text-center">
+                      <small>Words</small>
+                      <p className="h5 mb-0">{text.split(/\s+/).filter((element) => {
+                        return element.length !== 0;
+                      }).length}</p>
+                    </div>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="p-2 border rounded text-center">
+                      <small>Characters</small>
+                      <p className="h5 mb-0">{text.length}</p>
+                    </div>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="p-2 border rounded text-center">
+                      <small>Reading Time</small>
+                      <p className="h5 mb-0">{0.008 * text.split(" ").filter((element) => {
+                        return element.length !== 0;
+                      }).length} minutes</p>
+                    </div>
+                  </div>
+                  <div className="col-md-3">
+                    <div className="p-2 border rounded text-center">
+                      <small>Sentences</small>
+                      <p className="h5 mb-0">{text.split(/[.!?]+/).filter(Boolean).length}</p>
+                    </div>
+                  </div>
+                </div>
 
-        <h4>Readability Scores</h4>
-        <p>Reading Ease: {readability.readingEase}</p>
-        <p>Grade Level: {readability.gradeLevel}</p>
-      </div>
+                {/* Action Buttons */}
+                <div className="d-flex flex-wrap gap-2">
+                  <button disabled={text.length === 0} className="btn btn-primary btn-sm" onClick={upCase}>
+                    <i className="fas fa-uppercase me-1"></i>Uppercase
+                  </button>
+                  <button disabled={text.length === 0} className="btn btn-primary btn-sm" onClick={lwCase}>
+                    <i className="fas fa-lowercase me-1"></i>Lowercase
+                  </button>
+                  <button disabled={text.length === 0} className="btn btn-secondary btn-sm" onClick={clearText}>
+                    <i className="fas fa-trash me-1"></i>Clear
+                  </button>
+                  <button disabled={text.length === 0} className="btn btn-success btn-sm" onClick={addBookmark}>
+                    <i className="fas fa-bookmark me-1"></i>Bookmark
+                  </button>
+                  <button
+                    disabled={text.length === 0}
+                    className="btn btn-primary btn-sm"
+                    onClick={copyText}
+                  >
+                    <i className="fas fa-copy me-1"></i>Copy
+                  </button>
+                  <button
+                    disabled={text.length === 0}
+                    className="btn btn-primary btn-sm"
+                    onClick={extraSpace}
+                  >
+                    <i className="fas fa-space-shuttle me-1"></i>Remove Extra Space
+                  </button>
+                  <button
+                    disabled={text.length === 0}
+                    className="btn btn-primary btn-sm"
+                    onClick={encodeBase64}
+                  >
+                    <i className="fas fa-code me-1"></i>Encode to Base64
+                  </button>
+                  <button
+                    disabled={text.length === 0}
+                    className="btn btn-primary btn-sm"
+                    onClick={decodeBase64}
+                  >
+                    <i className="fas fa-code-branch me-1"></i>Decode from Base64
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      {bookmarkedTexts.length > 0 && (
-        <div
-          className="container my-1"
-          style={{
-            backgroundColor: props.mode === "dark" ? "grey" : "white",
-            color: props.mode === "dark" ? "white" : "black",
-            width: "200px",
-            position: "fixed",
-            right: "10px",
-            top: "10px",
-            border: "1px solid black",
-            borderRadius: "5px",
-            padding: "10px",
-            overflowY: "scroll",
-            maxHeight: "300px"
-          }}
-        >
-          <h4>Bookmarked Texts</h4>
-          <ul>
-            {bookmarkedTexts.map((item, index) => (
-              <li key={index} style={{ marginBottom: "8px" }}>
-                <span
-                  onClick={() => handleBookmarkClick(item)}
-                  style={{ cursor: "pointer", color: "blue" }}
-                >
-                  {item.length > 20 ? `${item.slice(0, 20)}...` : item}
-                </span>
-                <button
-                  onClick={() => deleteBookmark(index)}
-                  style={{ marginLeft: "5px", cursor: "pointer", color: "red" }}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
+          {/* Bookmarks Sidebar */}
+          <div className="col-lg-4 h-100">
+            <div className="card shadow-sm h-100">
+              <div className="card-body bookmarks-section">
+                <h5 className="card-title mb-3">Bookmarks</h5>
+                <div className="bookmark-list">
+                  {bookmarkedTexts.map((bookmark, index) => (
+                    <div key={index} className="bookmark-item p-2 mb-2 border rounded">
+                      <p className="mb-2 text-truncate">{bookmark}</p>
+                      <div className="d-flex gap-2">
+                        <button
+                          className="btn btn-sm btn-outline-primary"
+                          onClick={() => handleBookmarkClick(bookmark)}
+                        >
+                          Use
+                        </button>
+                        <button
+                          className="btn btn-sm btn-outline-danger"
+                          onClick={() => deleteBookmark(index)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
-
-      {/* Preview Text Section */}
-      <div
-        className="container my-1"
-        style={{
-          backgroundColor: props.mode === "dark" ? "grey" : "white",
-          color: props.mode === "dark" ? "white" : "black",
-        }}
-      >
-        <h4>Preview Text</h4>
-        <p>{text}</p>
       </div>
-    </>
+    </div>
   );
 };
 
