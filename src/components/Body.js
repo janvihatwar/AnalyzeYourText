@@ -120,13 +120,13 @@ const Body = (props) => {
 
   return (
     <div className="main-container">
-      <div className="container-fluid h-100 py-3">
-        <div className="row h-100">
+      <div className="container-fluid py-3">
+        <div className="row g-3">
           {/* Text Editor Section */}
-          <div className="col-lg-8 h-100">
+          <div className="col-12 col-lg-8">
             <div className="card shadow-sm editor-card">
               <div className="card-body d-flex flex-column">
-                <h3 className="card-title mb-3">
+                <h3 className="card-title h5 mb-3">
                   Text Analyzer
                 </h3>
                 
@@ -150,32 +150,32 @@ const Body = (props) => {
 
                 {/* Statistics Row */}
                 <div className="row g-2 mb-3">
-                  <div className="col-md-3">
+                  <div className="col-6 col-md-3">
                     <div className="p-2 border rounded text-center">
                       <small>Words</small>
-                      <p className="h5 mb-0">{text.split(/\s+/).filter((element) => {
+                      <p className="h6 mb-0">{text.split(/\s+/).filter((element) => {
                         return element.length !== 0;
                       }).length}</p>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-6 col-md-3">
                     <div className="p-2 border rounded text-center">
                       <small>Characters</small>
-                      <p className="h5 mb-0">{text.length}</p>
+                      <p className="h6 mb-0">{text.length}</p>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-6 col-md-3">
                     <div className="p-2 border rounded text-center">
                       <small>Reading Time</small>
-                      <p className="h5 mb-0">{0.008 * text.split(" ").filter((element) => {
+                      <p className="h6 mb-0">{0.008 * text.split(" ").filter((element) => {
                         return element.length !== 0;
                       }).length} minutes</p>
                     </div>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-6 col-md-3">
                     <div className="p-2 border rounded text-center">
                       <small>Sentences</small>
-                      <p className="h5 mb-0">{text.split(/[.!?]+/).filter(Boolean).length}</p>
+                      <p className="h6 mb-0">{text.split(/[.!?]+/).filter(Boolean).length}</p>
                     </div>
                   </div>
                 </div>
@@ -183,16 +183,16 @@ const Body = (props) => {
                 {/* Action Buttons */}
                 <div className="d-flex flex-wrap gap-2">
                   <button disabled={text.length === 0} className="btn btn-primary btn-sm" onClick={upCase}>
-                    <i className="fas fa-uppercase me-1"></i>Uppercase
+                    <i className="fas fa-uppercase me-1"></i>Upper
                   </button>
                   <button disabled={text.length === 0} className="btn btn-primary btn-sm" onClick={lwCase}>
-                    <i className="fas fa-lowercase me-1"></i>Lowercase
+                    <i className="fas fa-lowercase me-1"></i>Lower
                   </button>
                   <button disabled={text.length === 0} className="btn btn-secondary btn-sm" onClick={clearText}>
                     <i className="fas fa-trash me-1"></i>Clear
                   </button>
                   <button disabled={text.length === 0} className="btn btn-success btn-sm" onClick={addBookmark}>
-                    <i className="fas fa-bookmark me-1"></i>Bookmark
+                    <i className="fas fa-bookmark me-1"></i>Save
                   </button>
                   <button
                     disabled={text.length === 0}
@@ -228,14 +228,14 @@ const Body = (props) => {
           </div>
 
           {/* Bookmarks Sidebar */}
-          <div className="col-lg-4 h-100">
+          <div className="col-12 col-lg-4">
             <div className="card shadow-sm h-100">
               <div className="card-body bookmarks-section">
-                <h5 className="card-title mb-3">Bookmarks</h5>
+                <h5 className="card-title h5 mb-3">Bookmarks</h5>
                 <div className="bookmark-list">
                   {bookmarkedTexts.map((bookmark, index) => (
                     <div key={index} className="bookmark-item p-2 mb-2 border rounded">
-                      <p className="mb-2 text-truncate">{bookmark}</p>
+                      <p className="mb-2 text-truncate small">{bookmark}</p>
                       <div className="d-flex gap-2">
                         <button
                           className="btn btn-sm btn-outline-primary"

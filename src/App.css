@@ -86,30 +86,64 @@ html, body, #root, .App {
   overflow: hidden;
 }
 
-/* Adjust card heights */
-.editor-card {
-  height: calc(100vh - 140px); /* Adjust based on your navbar and padding */
-  display: flex;
-  flex-direction: column;
+/* Responsive styles */
+@media (max-width: 768px) {
+  html, body, #root, .App {
+    height: auto;
+    overflow: auto;
+  }
+
+  .main-container {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 1rem;
+  }
+
+  .editor-card, 
+  .bookmarks-section {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .editor-content {
+    height: auto !important;
+  }
+
+  textarea {
+    height: 200px !important; /* Fixed height for mobile */
+  }
+
+  .bookmark-list {
+    max-height: 300px !important; /* Fixed height for mobile bookmarks */
+    overflow-y: auto;
+  }
 }
 
-.editor-content {
-  flex: 1;
-  overflow: hidden;
-}
+/* Desktop styles */
+@media (min-width: 769px) {
+  .editor-card {
+    height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+  }
 
-textarea {
-  height: 100% !important;
-  resize: none;
-}
+  .editor-content {
+    flex: 1;
+    overflow: hidden;
+  }
 
-/* Bookmark section */
-.bookmarks-section {
-  height: calc(100vh - 140px);
-  overflow-y: auto;
-}
+  textarea {
+    height: 100% !important;
+    resize: none;
+  }
 
-.bookmark-list {
-  max-height: calc(100% - 40px);
-  overflow-y: auto;
+  .bookmarks-section {
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+
+  .bookmark-list {
+    max-height: calc(100% - 40px);
+    overflow-y: auto;
+  }
 }
