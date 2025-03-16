@@ -2,6 +2,11 @@
 
 **AnalyzeYourText** is a powerful web application designed to help users analyze, manipulate, and modify text efficiently. It provides various text-related utilities, making it easier for users to enhance their content.
 
+Demo
+
+Check out the live demo here:   [AnalyzeYourText](https://janvihatwar.github.io/AnalyzeYourText/) 
+
+
 ## *Installation*
 
 Use the following commands to clone the repository and run the application:
